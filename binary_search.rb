@@ -16,13 +16,14 @@ def binary_search(n:, array:)
     end
 end
 
-def binary_search_recursion(n:, array:, index: 0)
+def binary_search_recursion(n:, array:, low: 0, high: array.size - 1)
     
-    guess = array[index]
-    return index if guess.eql? n
-    index = (index + array.size - 1) / 2
-    guess = array[index]
-    binary_search_recursion(n: n, array: array, index: index - 1) if guess > n
-    binary_search_recursion(n: n, array: array, index: index + 1) if guess < n
+    return nil if array[high] < n or array[low] > n
+    mid = (low + high) / 2
+    guess = array[mid]
+    puts "low = #{low} high = #{high} mid = #{mid} guess = #{guess}"
+    return mid if guess.eql? n
+    return binary_search_recursion(n: n, array: array, high: mid - 1) if guess > n
+    return binary_search_recursion(n: n, array: array, low: mid + 1, high: high) if guess < n
     
 end
