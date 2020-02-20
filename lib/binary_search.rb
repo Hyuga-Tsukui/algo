@@ -23,7 +23,6 @@ def binary_search_recursion(n:, array:, low: 0, high: array.size - 1)
 
   mid = (low + high) / 2
   guess = array[mid]
-  puts "low = #{low} high = #{high} mid = #{mid} guess = #{guess}"
 
   return mid if guess.eql? n
 
